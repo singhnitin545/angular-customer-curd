@@ -1,0 +1,43 @@
+<div class="center">
+	<form ngForm>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" name="name" [(ngModel)]="newCustomer.name" class="form-control" placeholder="Name">
+	</div>
+			<div class="form-group">
+				<label for="add">Address</label>
+				<input type="text" name="add" [(ngModel)]="newCustomer.address" class="form-control" placeholder="Address">
+
+	</div>
+				<div class="form-group">
+					<label for="age">Mobile</label>
+					<input type="number" [(ngModel)]="newCustomer.mobile" class="form-control" name="age" placeholder="Mobile">
+  </div>
+
+					<button type="submit" (click)="submit()" class="btn btn-primary">Submit</button>
+	</form>
+	<br/>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Address</th>
+				<th scope="col">Mobile</th>
+				<th scope="col">Handle</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let cust of custs">
+				<th scope="row">{{cust.id}}</th>
+				<td>{{cust.name}}</td>
+				<td>{{cust.address}}</td>
+				<td>{{cust.mobile}}</td>
+				<td>
+					<button type="button" (click)="edit(cust.id)" class="btn btn-danger btn-sm">Edit</button>
+					<button type="button" (click)="delete(cust.id)" class="btn btn-warning btn-sm">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
